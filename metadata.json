@@ -1,0 +1,6 @@
+{
+  "name": "فيدورا ERP",
+  "description": "نظام فيدورا السحابي لإدارة تجارة الجملة والتوزيع والمخازن والعملاء ونقاط البيع السريعة",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

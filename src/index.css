@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-sans: 'IBM Plex Sans Arabic', 'Tajawal', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Light Mode Tokens */
+    --canvas-bg: #f8f9fa;
+    --bento-card: #ffffff;
+    --bento-nested: #f1f5f9;
+    --bento-border: #e2e8f0;
+    --bento-input-border: #cbd5e1;
+    --text-main: #0f172a;
+    --text-sub: #475569;
+    --text-muted: #94a3b8;
+
+    /* Brand & Accent Tokens */
+    --primary-main: #059669;
+    --primary-hover: #10b981;
+    --primary-light: #ecfdf5;
+    --accent-teal: #0f766e;
+
+    /* Financial & Status Tokens */
+    --status-risk: #f43f5e;
+    --status-risk-dark: #e11d48;
+    --status-warning: #f59e0b;
+    --status-warning-dark: #d97706;
+    --status-invoice: #3b82f6;
+    --status-invoice-dark: #2563eb;
+    --status-ai: #8b5cf6;
+    --status-ai-dark: #9333ea;
+  }
+
+  .dark {
+    /* Dark Mode (Bento Theme) Tokens */
+    --canvas-bg: #0a0a0a;
+    --bento-card: #121212;
+    --bento-nested: #1a1a1a;
+    --bento-border: #222222;
+    --bento-input-border: #333333;
+    --text-main: #ededed;
+    --text-sub: #888888;
+    --text-muted: #666666;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    direction: rtl;
+    background-color: var(--canvas-bg);
+    color: var(--text-main);
+  }
+}
+
+/* Bento Theme Custom Classes */
+.bg-canvas {
+  background-color: var(--canvas-bg);
+}
+
+.bg-bento-card {
+  background-color: var(--bento-card);
+}
+
+.bg-bento-nested {
+  background-color: var(--bento-nested);
+}
+
+.border-bento {
+  border-color: var(--bento-border);
+}
+
+.border-bento-input {
+  border-color: var(--bento-input-border);
+}
+
+.text-bento-main {
+  color: var(--text-main);
+}
+
+.text-bento-sub {
+  color: var(--text-sub);
+}
+
+.text-bento-muted {
+  color: var(--text-muted);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.6);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #333333;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #444444;
+}
+
+/* Print styles for invoices */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-invoice, #printable-invoice * {
+    visibility: visible;
+  }
+  #printable-invoice {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    background: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
+
